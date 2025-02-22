@@ -45,6 +45,16 @@ class GroundtruthReader(ABC):
         pass
 
 class CsvGTReader(GroundtruthReader):
+    """
+    A utility class for reading and parsing groundtruth data from a CSV file.
+
+    The CSV file should have the following format:
+        frame_id, class_name, x1, y1, x2, y2
+
+    - `frame_id` (int): The frame number.
+    - `class_name` (str): The object class.
+    - `x1, y1, x2, y2` (int): Bounding box coordinates.
+    """
     def __init__(self, filepath):
         super().__init__(filepath)
 
@@ -63,7 +73,6 @@ class CsvGTReader(GroundtruthReader):
                     if len(row) != 6:
                         print(f"Incorrect line in the file: {row}")
                         continue
-
                     frame_id, class_name, x1, y1, x2, y2 = row
                     row_data = (int(frame_id), str(class_name), int(x1), int(y1),
                                 int(x2), int(y2))
@@ -141,6 +150,17 @@ class FakeGTReader(GroundtruthReader):
         return (x, y, h, w)
 
 class DetectionReader(GroundtruthReader):
+    """
+    A utility class for reading and parsing detections data from a CSV file.
+
+    The CSV file should have the following format:
+        frame_id, class_name, x1, y1, x2, y2, confidence
+
+    - `frame_id` (int): The frame number.
+    - `class_name` (str): The object class.
+    - `x1, y1, x2, y2` (int): Bounding box coordinates.
+    - `confidence` (float): A confidence score.
+    """
     def __init__(self, file_path):
         super().__init__(file_path)
 

@@ -15,7 +15,7 @@ Dependencies:
 """
 import os
 from abc import ABC, abstractmethod
-import cv2
+import cv2 as cv
 
 class FrameDataReader(ABC):
     """Abstract Base Class for frame data readers.
@@ -85,7 +85,7 @@ class VideoDataReader(FrameDataReader):
     def __init__(self, video_path):
         """Initialize video capture and validate path."""
         self.video_path = video_path
-        self.cap = cv2.VideoCapture(video_path)
+        self.cap = cv.VideoCapture(video_path)
         if not self.cap.isOpened():
             raise ValueError(f"Cannot open video file: {video_path}")
 
@@ -158,7 +158,7 @@ class ImgDataReader(FrameDataReader):
         if self.index < len(self.image_files):
             img_path = self.image_files[self.index]
             self.index += 1
-            img = cv2.imread(img_path)
+            img = cv.imread(img_path)
             if img is None:
                 raise ValueError(f"Cannot read image file: {img_path}")
             return img
