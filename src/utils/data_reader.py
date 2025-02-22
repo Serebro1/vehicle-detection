@@ -118,7 +118,6 @@ class FakeGTReader(GroundtruthReader):
                 x1, y1, w, h = self.__generate_bbox()
                 x2 = x1 + w
                 y2 = y1 + h
-                
                 data.append((
                     frame_id,
                     random.choice(self.obj_classes),
@@ -143,7 +142,7 @@ class FakeGTReader(GroundtruthReader):
 
 class DetectionReader(GroundtruthReader):
     def __init__(self, file_path):
-        self.file_path = file_path
+        super().__init__(file_path)
 
     def read(self):
         """

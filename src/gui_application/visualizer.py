@@ -13,7 +13,7 @@ Dependencies:
 - argparse for command-line argument handling
 """
 
-import cv2 as cv
+import cv2
 from ..utils.frame_data_reader import FrameDataReader
 from ..vehicle_detector.detector import FakeDetector
 
@@ -58,12 +58,12 @@ class Visualize:
                     for box in self.__get_groundtruth_bboxes(frame_idx):
                         self.__draw_box(image, box, (0, 255, 0))
                 frame_idx+=1
-                if cv.waitKey(25) & 0xFF == ord('q'):
+                if cv2.waitKey(25) & 0xFF == ord('q'):
                     break 
         except Exception as e:
             print(f"An error occurred: {e}")
         finally:
-            cv.destroyAllWindows()
+            cv2.destroyAllWindows()
 
     def __draw_box(self, image, box, color):
         """Internal method: Draw single bounding box with label.
@@ -74,9 +74,9 @@ class Visualize:
             color: BGR tuple for box/label color
         """
         label, x1, y1, x2, y2 = box
-        cv.rectangle(image, (x1, y1), (x2, y2), color, 2)
-        cv.putText(image, label, (x1, y1 - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
-        cv.imshow("Image", image)
+        cv2.rectangle(image, (x1, y1), (x2, y2), color, 2)
+        cv2.putText(image, label, (x1, y1 - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+        cv2.imshow("Image", image)
 
     def __get_groundtruth_bboxes(self, frame_idx):
         """Internal method: Filter groundtruth boxes for current frame.

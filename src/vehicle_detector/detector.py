@@ -18,7 +18,7 @@ Dependencies:
 
 import random
 from abc import ABC, abstractmethod
-import cv2 as cv
+import cv2
 
 
 class Detector(ABC):
