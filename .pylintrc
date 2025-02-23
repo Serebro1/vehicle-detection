@@ -1,2 +1,2 @@
 [MASTER]
-init-hook='import sys; sys.path.insert(0, "путь/к/project_root")'
+init-hook='import sys; sys.path.insert(0, "src")'
