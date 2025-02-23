@@ -1,5 +1,5 @@
 [MASTER]
 init-hook='import sys; sys.path.insert(0, "src")'
-extension-pkg-allow-list=cv2, cv
+extension-pkg-allow-list=cv2
 load-plugins=pylint.extensions.docparams
 rcfile=.pylintrc

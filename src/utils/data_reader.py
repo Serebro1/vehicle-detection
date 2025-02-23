@@ -60,10 +60,20 @@ class CsvGTReader(GroundtruthReader):
 
     def read(self):
         """
-        Parsing CSV file with groundtruths.
+        Parse and retrieve groundtruth data from a CSV file.
 
-        :param file_path: The path to the file with groundtruths.
-        :return: list[tuples] of parsed data by rows.
+        Returns:
+            list[tuple]: Generated data in format 
+            (frame_id, class_name, x1, y1, x2, y2)
+        
+        Handles:
+            - File not found errors (prints warning)
+            - Format validation (skips rows with incorrect element count)
+            - Type conversion errors (prints warning for invalid values)
+
+        Note:
+            - Empty list returned if file not found or unreadable
+            - Prints error messages to console for troubleshooting
         """
         parsed_data = []
         try:
@@ -166,10 +176,22 @@ class DetectionReader(GroundtruthReader):
 
     def read(self):
         """
-        Parsing CSV file with detections.
+        Parse and retrieve detection data from a CSV file.
 
-        :param file_path: The path to the file with detections.
-        :return: list[tuples] of parsed data by rows.
+        Processes a CSV file containing detection results.
+
+        Returns:
+            list[tuple]: Parsed detection data where each tuple contains:
+                frame_id, class_name, x1, y1, x2, y2, confidence
+
+        Handles:
+            - File not found errors (prints warning)
+            - Format validation (skips rows with incorrect element count)
+            - Type conversion errors (prints warning for invalid values)
+
+        Note:
+            - Empty list returned if file not found or unreadable
+            - Prints error messages to console for troubleshooting
         """
         parsed_data = []
         try:
