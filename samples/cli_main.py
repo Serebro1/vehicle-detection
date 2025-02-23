@@ -2,11 +2,10 @@
 CLI application "Vehicle detector"
 """
 import argparse
-
-from ..src.gui_application.visualizer import Visualize
-from ..src.utils.data_reader import CsvGTReader, FakeGTReader
-from ..src.utils.frame_data_reader import FrameDataReader
-from ..src.vehicle_detector.detector import Detector
+from src.gui_application.visualizer import Visualize
+from src.utils.data_reader import CsvGTReader, FakeGTReader
+from src.utils.frame_data_reader import FrameDataReader
+from src.vehicle_detector.detector import Detector
 
 def cli_argument_parser():
     """
