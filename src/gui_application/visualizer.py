@@ -59,7 +59,7 @@ class Visualize:
                         self.__draw_box(image, box, (0, 255, 0))
                 frame_idx+=1
                 if cv.waitKey(25) & 0xFF == ord('q'):
-                    break 
+                    break
         except Exception as e:
             print(f"An error occurred: {e}")
         finally:
@@ -67,6 +67,7 @@ class Visualize:
 
     def __draw_box(self, image, box, color):
         """Internal method: Draw single bounding box with label.
+
         Args:
             image: Input frame matrix
             box: Detection tuple (label, x1, y1, x2, y2)
@@ -79,11 +80,10 @@ class Visualize:
 
     def __get_groundtruth_bboxes(self, frame_idx):
         """Internal method: Filter groundtruth boxes for current frame.
-        
+
         Args:
             frame_idx: Current frame index
-            
         Returns:
-            list: Groundtruth boxes for specified frame in format [label, x1, y1, x2, y2]
+            list: Groundtruth boxes for specified frame in format [[label, x1, y1, x2, y2],...]
         """
         return [item[1:] for item in self.gt_layout if item[0] == frame_idx]

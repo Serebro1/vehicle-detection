@@ -9,7 +9,7 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(project_root)
 
 from src.gui_application.visualizer import Visualize
-from src.utils.data_reader import GroundtruthReader
+from src.utils.data_reader import CsvGTReader, FakeGTReader
 from src.utils.frame_data_reader import FrameDataReader
 from src.vehicle_detector.detector import Detector
 
@@ -82,8 +82,8 @@ def main():
     """
     args = cli_argument_parser()
     reader = FrameDataReader.create( args.mode, (args.video_path or args.images_path) )
-    detector = Detector.create( "fake" )
-    visualizer = Visualize( reader, detector, GroundtruthReader().read(args.groundtruth_path) )
+    detector = Detector.create( "vehicle" )
+    visualizer = Visualize( reader, detector, CsvGTReader(args.groundtruth_path).read() )
     visualizer.show()
 
 if __name__ == '__main__':

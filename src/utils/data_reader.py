@@ -93,7 +93,7 @@ class FakeGTReader(GroundtruthReader):
     - Random object classes
     - Valid bounding boxes within image dimensions
     - Reproducible results through seeding
-    
+
     Args:
         file_path (str): Dummy parameter for interface compatibility
     """

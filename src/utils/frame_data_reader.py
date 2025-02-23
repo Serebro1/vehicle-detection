@@ -81,7 +81,6 @@ class VideoDataReader(FrameDataReader):
     Raises:
         ValueError: If video file cannot be opened
     """
-
     def __init__(self, video_path):
         """Initialize video capture and validate path."""
         self.video_path = video_path
@@ -99,10 +98,9 @@ class VideoDataReader(FrameDataReader):
 
     def __next__(self):
         """Get next video frame.
-        
+
         Returns:
             ndarray: Next video frame as numpy array
-            
         Raises:
             StopIteration: When video ends or is closed
         """
@@ -116,9 +114,9 @@ class VideoDataReader(FrameDataReader):
 
 class ImgDataReader(FrameDataReader):
     """Image directory frame reader.
-    
-    Iterates through image files in directory sorted alphabetically.
-    Supports common image formats: PNG, JPG, JPEG, BMP, TIFF.
+
+    - Iterates through image files in directory sorted alphabetically.
+    - Supports common image formats: PNG, JPG, JPEG, BMP, TIFF.
     
     Args:
         dir_path (str): Path to image directory
@@ -126,7 +124,6 @@ class ImgDataReader(FrameDataReader):
     Raises:
         ValueError: For invalid directory path
     """
-
     def __init__(self, dir_path):
         """Validate directory and prepare image file list."""
         self.index = 0
@@ -139,7 +136,7 @@ class ImgDataReader(FrameDataReader):
 
     def __iter__(self):
         """Return iterator object.
-        
+
         Returns:
             self: Iterator instance
         """
@@ -147,10 +144,10 @@ class ImgDataReader(FrameDataReader):
 
     def __next__(self):
         """Load next image in directory.
-        
+
         Returns:
             ndarray: Image data as numpy array
-            
+
         Raises:
             StopIteration: When all images processed
             ValueError: If image file cannot be read

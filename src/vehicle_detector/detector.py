@@ -73,7 +73,7 @@ class VehicleDetector(Detector):
     def __init__(self):
         pass
     def detect(self, image):
-        pass
+        return []
 
 class FakeDetector(Detector):
     """Testing detector generating random bounding boxes.
