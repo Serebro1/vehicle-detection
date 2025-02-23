@@ -79,7 +79,4 @@ def main():
     detector = Detector.create( "vehicle" )
     visualizer = Visualize( reader, detector, CsvGTReader(args.groundtruth_path).read() )
     visualizer.show()
-
-if __name__ == '__main__':
-    main()
     

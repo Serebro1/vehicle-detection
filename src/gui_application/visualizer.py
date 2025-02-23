@@ -14,8 +14,8 @@ Dependencies:
 """
 
 import cv2 as cv
-from ..utils.frame_data_reader import FrameDataReader
-from ..vehicle_detector.detector import FakeDetector
+from src.utils.frame_data_reader import FrameDataReader
+from src.vehicle_detector.detector import FakeDetector
 
 class Visualize:
     """Visualization controller for detection/groundtruth comparison.
