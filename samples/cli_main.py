@@ -1,17 +1,12 @@
 """
 CLI application "Vehicle detector"
 """
-import sys
-import os
 import argparse
 
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.insert(project_root)
-
-from src.gui_application.visualizer import Visualize
-from src.utils.data_reader import CsvGTReader, FakeGTReader
-from src.utils.frame_data_reader import FrameDataReader
-from src.vehicle_detector.detector import Detector
+from ..src.gui_application.visualizer import Visualize
+from ..src.utils.data_reader import CsvGTReader, FakeGTReader
+from ..src.utils.frame_data_reader import FrameDataReader
+from ..src.vehicle_detector.detector import Detector
 
 def cli_argument_parser():
     """
