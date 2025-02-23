@@ -6,7 +6,7 @@ import os
 import argparse
 
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(project_root)
+sys.path.insert(project_root)
 
 from src.gui_application.visualizer import Visualize
 from src.utils.data_reader import CsvGTReader, FakeGTReader

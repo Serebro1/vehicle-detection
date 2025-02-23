@@ -136,7 +136,7 @@ class FakeGTReader(GroundtruthReader):
                     round(y2, 2)
                 ))
         return data
-    
+
     def __generate_bbox(self):
         """Generate random valid bounding box coordinates.
         
